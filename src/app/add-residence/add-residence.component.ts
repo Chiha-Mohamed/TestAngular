@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { Router, ActivatedRoute } from '@angular/router';
-import { ResidenceService } from './../services/residence.service';
-import { Residence } from './../core/models/residence';
+import {ActivatedRoute, Router} from '@angular/router';
+import {ResidenceService} from './../services/residence.service';
+import {Residence} from './../core/models/residence';
+import {FormGroup, FormControl} from '@angular/forms';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-add-residence',
@@ -11,55 +11,57 @@ import { Residence } from './../core/models/residence';
 })
 export class AddResidenceComponent implements OnInit {
   myForm!: FormGroup;
+  r: Residence = new Residence();
+  isUpdateMode: boolean = false;
   residenceId: number | null = null;
-  isEditMode: boolean = false;
 
   constructor(
     private rservice: ResidenceService,
-    public myRouter: Router,  
+    private myRouter: Router,
     private route: ActivatedRoute
-  ) {}
+  ) {
+  }
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.myForm = new FormGroup({
-      name: new FormControl('', Validators.required),
-      address: new FormControl('', Validators.required),
-      image: new FormControl(''),
-      status: new FormControl('', Validators.required)
+      name: new FormControl(""),
+      adress: new FormControl(""),
+      image: new FormControl(""),
+      status: new FormControl("")
     });
 
+    // Check if we are in update mode
     this.route.paramMap.subscribe(params => {
       const id = params.get('id');
       if (id) {
-        this.isEditMode = true;
-        this.residenceId = +id; 
+        this.isUpdateMode = true;
+        this.residenceId = +id;
         this.loadResidenceData(this.residenceId);
-      } else {
-        this.isEditMode = false;
       }
     });
   }
 
-  // Fetch the residence data for editing
-  loadResidenceData(id: number): void {
-    this.rservice.getResidenceById(id).subscribe(res => {
-      this.myForm.patchValue(res);
+  loadResidenceData(id: number) {
+    this.rservice.getResidenceById(id).subscribe(residence => {
+      this.myForm.patchValue({
+        name: residence.name,
+        // adress: residence.adress,
+        image: residence.image,
+        status: residence.status
+      });
     });
   }
 
-  save(): void {
-    if (this.myForm.invalid) return;
-
-    const residence: Residence = { ...this.myForm.value, id: this.residenceId };
-
-    if (this.isEditMode) {
-      this.rservice.updateResidence(residence).subscribe(() => {
-        this.myRouter.navigateByUrl('/home');
-      });
+  add() {
+    if (this.isUpdateMode && this.residenceId !== null) {
+      const updatedResidence = {id: this.residenceId, ...this.myForm.value};
+      this.rservice.updateResidence(updatedResidence).subscribe(
+        () => this.myRouter.navigateByUrl("home")
+      );
     } else {
-      this.rservice.addResidence(this.myForm.value).subscribe(() => {
-        this.myRouter.navigateByUrl('/home');
-      });
+      this.rservice.addResidence(this.myForm.value).subscribe(
+        () => this.myRouter.navigateByUrl("home")
+      );
     }
   }
 }
