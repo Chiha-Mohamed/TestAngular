@@ -1,0 +1,198 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "residences": [
+    {
+      "id": 4,
+      "name": "El Anber",
+      "address": "inconnu",
+      "image": "../../assets/images/R4.jpg",
+      "status": "En Construction"
+    },
+    {
+      "name": "afafa",
+      "adress": "dfzd",
+      "image": "dsf",
+      "status": "fdsfs",
+      "id": 6
+    },
+    {
+      "name": "testResidence",
+      "adress": "testAddress",
+      "image": "testImage",
+      "status": "Disponible",
+      "id": 7
+    },
+    {
+      "name": "test",
+      "adress": "test",
+      "image": "data:image/webp;base64,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",
+      "status": "test",
+      "id": 8
+    },
+    {
+      "name": "test",
+      "adress": "test",
+      "image": "test",
+      "status": "test",
+      "id": 9
+    },
+    {
+      "name": "test",
+      "adress": "teyt",
+      "image": "ytyty",
+      "status": "yty",
+      "id": 10
+    },
+    {
+      "name": "test",
+      "adress": "test",
+      "image": "",
+      "status": "test",
+      "id": 11
+    },
+    {
+      "name": "test",
+      "adress": "test",
+      "image": "",
+      "status": "test",
+      "id": 12
+    }
+  ],
+  "apartments": [
+    {
+      "appartNum": "44",
+      "category": "S+2",
+      "floorNum": "44",
+      "description": "zertyuiopvgbhnj,k;l",
+      "surface": 77,
+      "surfaceTerrace": 11,
+      "terrace": "yes",
+      "residence": "2",
+      "id": 1
+    },
+    {
+      "appartNum": "99",
+      "category": "S+3",
+      "floorNum": "99",
+      "description": "999999kkkkk",
+      "surface": 99,
+      "surfaceTerrace": 99,
+      "terrace": "yes",
+      "residence": "2",
+      "id": 2
+    },
+    {
+      "appartNum": "99",
+      "category": "S+3",
+      "floorNum": "99",
+      "description": "999999kkkkk",
+      "surface": 99,
+      "surfaceTerrace": 99,
+      "terrace": "yes",
+      "residence": "2",
+      "id": 3
+    },
+    {
+      "appartNum": "99",
+      "category": "S+3",
+      "floorNum": "99",
+      "description": "999999kkkkk",
+      "surface": 99,
+      "surfaceTerrace": 99,
+      "terrace": "yes",
+      "residence": "2",
+      "id": 4
+    },
+    {
+      "appartNum": "232",
+      "category": "S+2",
+      "floorNum": "23",
+      "description": "azerty-èu_içoàpfvgbhnjk",
+      "surface": 23,
+      "surfaceTerrace": 69,
+      "terrace": "yes",
+      "residence": "1",
+      "id": 5
+    },
+    {
+      "floorNB": "22",
+      "apartmentNB": "22",
+      "surface": 22,
+      "terrace": "yes",
+      "surfaceTerrace": 111,
+      "category": "S+1",
+      "description": "azertyuè_içop",
+      "residence": "1",
+      "id": 6
+    },
+    {
+      "floorNB": "11",
+      "apartmentNB": "111",
+      "surface": 11,
+      "terrace": "yes",
+      "surfaceTerrace": 11,
+      "category": "S+1",
+      "description": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "residence": "1",
+      "id": 7
+    },
+    {
+      "floorNB": "84",
+      "apartmentNB": "84",
+      "surface": 88,
+      "terrace": "yes",
+      "surfaceTerrace": 45454,
+      "category": "S+1",
+      "description": "dfghjklfgbhnj,k;lmbhnj,k;l",
+      "residence": "2",
+      "id": 8
+    },
+    {
+      "floorNB": "12",
+      "apartmentNB": "12",
+      "surface": 22,
+      "terrace": "yes",
+      "surfaceTerrace": 22,
+      "category": "S+1",
+      "description": "zertyuiopdfvgbhjkl",
+      "residence": "3",
+      "id": 9
+    },
+    {
+      "id": 10
+    },
+    {
+      "id": 11
+    },
+    {
+      "id": 12
+    },
+    {
+      "appartNum": "11",
+      "category": "S+1",
+      "floorNum": "11",
+      "description": "ffffffhhhhhh",
+      "surface": 11,
+      "surfaceTerrace": 11,
+      "terrace": "yes",
+      "residence": "3",
+      "id": 13
+    }
+  ]
+}

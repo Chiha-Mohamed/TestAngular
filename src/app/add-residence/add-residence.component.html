@@ -1,0 +1,32 @@
+<div class="container mt-4">
+  <h2>{{ isEditMode ? 'Edit Residence' : 'Add Residence' }}</h2>
+
+  <form [formGroup]="myForm" (ngSubmit)="save()">
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" id="name" class="form-control" formControlName="name" placeholder="Enter Residence Name" />
+    </div>
+
+    <div class="form-group">
+      <label for="address">Address</label>
+      <input type="text" id="address" class="form-control" formControlName="address" placeholder="Enter Address" />
+    </div>
+
+    <div class="form-group">
+      <label for="image">Image URL</label>
+      <input type="text" id="image" class="form-control" formControlName="image" placeholder="Enter Image URL" />
+    </div>
+
+    <div class="form-group">
+      <label for="status">Status</label>
+      <input type="text" id="status" class="form-control" formControlName="status" placeholder="Enter Status" />
+    </div>
+
+    <button type="submit" class="btn btn-primary mt-2" [disabled]="myForm.invalid">
+      {{ isEditMode ? 'Update Residence' : 'Add Residence' }}
+    </button>
+    <button type="button" class="btn btn-secondary ms-2 mt-2" (click)="myRouter.navigateByUrl('/home')">
+      Cancel
+    </button>
+  </form>
+</div>

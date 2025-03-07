@@ -1,0 +1,54 @@
+<div>
+<p>residences works!</p>
+{{ name }} <!-- interpolation -->
+<button (click)="f(5)">Click Me!</button> <!--event-binding-->
+{{message}}
+<input [type]="text" [value]="prop"> <!--property binding-->
+{{prop}}
+<input [type]="text" [(ngModel)]="prop">
+</div>
+*********************************************
+<!----
+<ul>
+  <li *ngFor="let r of listResidences;let e= even; let o=odd; let i = index; let f=first; let l=last">
+  {{e}} ** {{o}}**{{l}}**{{f}} ** {{i}} ** {{r.id }}
+  <p *ngIf="show && i==position"> {{r.address}} </p>
+  <button (click)="showLocation(i)">Show location</button>
+ <button [disabled]="f">etat</button>
+</li>
+</ul>  ---->
+rechercher par adresse : <input class="input-text" [(ngModel)]="address">
+  <div class="card-group">
+  <ng-container *ngFor="let r of listResidences">
+  <div class="card"  *ngIf="r.address.toLowerCase().includes(address.toLowerCase())">
+    <img class="card-img-top"  [src]="r.image" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">{{r.name}}</h5>
+      <p class="card-text" *ngIf="r.status == 'Disponible'"  [style.color]="getColor(r.status)">Disponible ✅</p>
+        <p class="card-text" *ngIf="r.status == 'En Construction' " [style.color]="getColor(r.status)">En Construction 🚧</p>
+        <p class="card-text" *ngIf="r.status == 'Vendu' " [style.color]="getColor(r.status)">Vendu ❌</p>
+      <p class="card-text">
+        <button class="btn btn-primary" [routerLink]="['/details',r.id]">details</button>
+        <button class="btn btn-secondary" [routerLink]="['details',r.id]">details-children</button>
+        <button class="btn btn-light" (click)="getLocation(r)">Show location</button>
+        <button class="btn btn-dark" (click)="addFavoris(r)">Add To Favoris</button>
+        <button class="btn btn-danger" (click)="delete(r.id)">delete</button>
+        <button class="btn btn-warning btn-sm" [routerLink]="['/updateResidence', r.id]">Modifier</button>      </p>
+    </div>
+    <div *ngIf="showAdress && id==r.id"> {{r.address}} </div>
+
+  </div>
+</ng-container> 
+  </div>
+
+
+<h1>Mes favoris</h1>
+
+<div *ngFor="let r of favoris">
+
+{{r.id }} - {{ r.name }}
+
+</div>
+
+
+
